@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <link rel="stylesheet" href="/webjars/bootstrap/5.0.1/css/bootstrap.min.css"/>
+  <script>
+    function copyUrl() {
+      const shortenedUrl = document.getElementById("shortened");
+      shortenedUrl.select();
+      shortenedUrl.setSelectionRange(0, 1050);
+      document.execCommand("copy");
+      alert('복사되었습니다.');
+    }
+  </script>
+</head>
+<body>
+  <main class="row">
+    <section class="w-50 h-50 mx-auto mt-5">
+      <header class="row">
+        <h2>URL 줄이기 결과</h2>
+      </header>
+      <section class="row">
+        <div class="mb-3">
+          <input type="text" class="form-control" id="shortened" th:value="${shortened}">
+        </div>
+        <div>
+          <button class="btn btn-primary float-end" type="button" onclick="copyUrl()">복사하기</button>
+        </div>
+        <div class="row">
+          <dl>
+            <dt>원본 URL</dt>
+            <dd class="text-break" th:text="${original}"></dd>
+          </dl>
+        </div>
+      </section>
+    </section>
+  </main>
+</body>
+</html>

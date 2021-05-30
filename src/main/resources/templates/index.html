@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <link rel="stylesheet" href="/webjars/bootstrap/5.0.1/css/bootstrap.min.css"/>
+</head>
+<body>
+  <main class="row">
+    <section class="w-50 h-50 mx-auto mt-5">
+      <header class="row">
+        <h2>URL 줄이기<span th:utext="${hostname}"></span> </h2>
+      </header>
+      <section class="row">
+        <form method="post" th:action="@{/shorten}" th:object="${urlRequest}">
+          <div class="mb-3">
+            <input type="text" class="form-control" placeholder="줄이고자 하는 URL을 입력하세요" th:field="*{original}" >
+            <p class="p-1 text-danger" th:if="${#fields.hasErrors('original')}" th:errors="*{original}">Invalid original</p>
+          </div>
+          <div class="float-end">
+            <button class="btn btn-primary" type="submit">줄이기</button>
+          </div>
+        </form>
+      </section>
+    </section>
+  </main>
+</body>
+</html>

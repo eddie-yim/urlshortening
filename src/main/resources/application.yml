@@ -1,0 +1,38 @@
+spring:
+  thymeleaf:
+    mode: HTML5
+    cache: false
+  messages:
+    basename: message/messages
+base-url: http://localhost
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://database:5432/example
+    username: scott
+    password: tiger
+  jpa:
+    show-sql: true
+logging:
+  level:
+    com.assignment: debug
+---
+spring:
+  config:
+    activate:
+      on-profile: test
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:test-db
+    username: test
+    password: test
+  jpa:
+    generate-ddl: true
+logging:
+  level:
+    com.assignment: debug
+---
