@@ -47,6 +47,7 @@ make dev
 ```
 production 배포 시 스프링부트의 application.prod.yml및 docker-compose 파일의 환경변수 수정 등 필요.
 # 테스트 실행
+Java 11+ 설치 필요
 ```aidl
 make test
 ```
