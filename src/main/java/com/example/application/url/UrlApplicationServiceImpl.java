@@ -25,7 +25,6 @@ public class UrlApplicationServiceImpl implements UrlApplicationService {
         try {
             finalizedOriginalUrl = UrlFinalizer.finalize(originalUrl);
         } catch (Exception e) {
-            log.error(e.getMessage(), e);
             throw new UrlFinalizingFailedException(e);
         }
 
